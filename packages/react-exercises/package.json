@@ -1,0 +1,25 @@
+{
+  "name": "@react-next-playbook/react-exercises",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "echo \"(react-exercises has no lint yet)\""
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "jsdom": "^26.0.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8",
+    "@react-next-playbook/core-test-utils": "workspace:*"
+  }
+}

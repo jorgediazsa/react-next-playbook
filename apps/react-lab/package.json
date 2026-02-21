@@ -1,0 +1,9 @@
+{
+  "name": "@react-next-playbook/react-lab",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo \"(react-lab has no tests yet)\"",
+    "lint": "echo \"(react-lab has no lint yet)\""
+  }
+}

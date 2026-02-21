@@ -1,0 +1,14 @@
+{
+  "name": "react-next-staff-buddy",
+  "private": true,
+  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "yarn workspaces run test",
+    "test:react": "yarn workspace @react-next-playbook/react-exercises test",
+    "lint": "yarn workspaces run lint"
+  }
+}

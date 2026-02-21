@@ -1,15 +1,22 @@
-# react-next-staff-buddy
+# react-next-playbook
 
-Monorepo (Yarn workspaces) for a Staff-level React + Next.js roadmap.
+Monorepo (Yarn workspaces) for a Staff-level React + Next.js (App Router) roadmap.
 
-## Quickstart
+## Install
 ```bash
 yarn
+```
+
+## Run tests
+```bash
 yarn test
+# or
+yarn test:react
 ```
 
 ## Structure
-- `docs/roadmap.md` — the roadmap
-- `packages/react-exercises` — React-focused exercises (unit/integration)
-- `apps/react-lab` — optional sandbox (empty scaffold for now)
-- `apps/next-lab` — optional sandbox (empty scaffold for now)
+- `docs/roadmap.md` — full roadmap (phases A–F)
+- `packages/react-exercises` — React-focused modules (RTL + Vitest)
+- `packages/core-test-utils` — shared test helpers
+- `apps/react-lab` — optional sandbox (placeholder)
+- `apps/next-lab` — optional sandbox (placeholder; used when modules require Next runtime)

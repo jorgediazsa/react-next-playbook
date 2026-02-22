@@ -13,13 +13,14 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@react-next-playbook/core-test-utils": "workspace:*",
+    "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "jsdom": "^26.0.0",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.8",
-    "@react-next-playbook/core-test-utils": "workspace:*"
+    "vitest": "^2.1.8"
   }
 }

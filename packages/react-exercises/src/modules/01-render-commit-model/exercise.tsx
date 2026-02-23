@@ -7,44 +7,42 @@ export type CommitInfo = {
 };
 
 type Props = {
-  /**
-   * Called on each commit. Must be triggered by Profiler.
-   */
+  /** Called on each commit. Must be triggered by Profiler. */
   onCommit: (info: CommitInfo) => void;
 };
 
+/**
+ * EXERCISE:
+ * Fix this component so tests pass, WITHOUT changing the tests.
+ *
+ * The bugs are intentionally documented below as comments.
+ */
+
 let renderSideEffectCounter = 0;
 
-/**
- * A small demo component whose correctness is validated under StrictMode.
- * - Must not do any side effects in render.
- * - Uses Profiler to report commit information.
- */
 export function RenderCommitDemo({ onCommit }: Props) {
-  // ❌ BUG 1: side-effect in render (StrictMode will amplify)
+  // BUG 1: Side-effect in render (StrictMode may render twice in dev)
   renderSideEffectCounter++;
 
-  // ❌ BUG 2: Hook call is fine, but we’ll make behavior flaky via render logic
   const [count, setCount] = useState(0);
 
-  // ❌ BUG 3: derived value depends on side-effect counter, not state
+  // BUG 2: UI derived from a render-time side effect, not from React state
   const label = useMemo(() => `Count: ${renderSideEffectCounter}`, [count]);
 
   return (
     <StrictMode>
       <Profiler
-        // ❌ BUG 4: wrong id — tests expect "RenderCommitDemo"
+        // BUG 3: Wrong id (tests expect "RenderCommitDemo")
         id="BrokenProfilerId"
         onRender={(id, phase, actualDuration) => {
-          // ❌ BUG 5: wrong shape: phase might be "mount"/"update", but we’re not enforcing types
-          // and we also never forward the correct id
+          // BUG 4: Wrong id forwarded to onCommit (tests validate the id)
           onCommit({ id: "WrongId", phase: phase as any, actualDuration });
         }}
       >
         <div>
           <div aria-label="count-label">{label}</div>
 
-          {/* ❌ BUG 6: not using functional update (can be fine), but keep it simple */}
+          {/* BUG 5: Non-functional update can be okay, but keep it robust */}
           <button type="button" onClick={() => setCount(count + 1)}>
             Increment
           </button>
